@@ -1,0 +1,112 @@
+\section{رویکرد ها}
+
+\subsection{تصویر کردن}
+
+با توجه به قضیه فیثاغورس، و مثبت بودن انحراف ها، میتوانیم به یک مفهوم بنیادی دست پیدا کنیم.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics*[width=0.5\linewidth]{Pictures/Q5/information-proj.png}
+\end{figure}
+
+اگر فرض کنیم $p^*$ نقطه کمینه کننده انحراف بین یک خمینه \lr{$\nabla^*$-flat} با نقطه $p$ باشد، برای باقی نقاط بر روی این خمینه رابطه زیر را داریم.
+$$D(p:p')=D(p:p^*)+D(p^*:p')>D(p:p^*)$$
+در نتیجه کمینه کننده انحراف، یک نقطه یکتا است، این نیز با نتیجه هایی که در کلاس از آن استفاده میکردیم مطابقت دارد، برای مثال اگر از انحراف KL استفاده کنیم،
+این نقطه در برخی از حالت ها به ما یکتا بودن تخمینگر بیشترین درست نمایی(MLE) را نشان میدهد! در برخی از حالت ها هم به ما یکتا بودن پاسخ قاعده بیشینه آنتروپی را نشان میدهد!
+
+با استفاده از مفهوم یکتا بودن کمینه کننده انحراف، تصویر کردن را تعریف میکنیم.
+\begin{align*}
+	S: \nabla^*flat  \Rightarrow \nabla projection   & : P_s=\arg\min_{Q\in S}D(\theta(P):\theta(Q)) \\
+	S: \nabla^flat   \Rightarrow \nabla^* projection & : P_s=\arg\min_{Q\in S}D(\theta(Q):\theta(P))
+\end{align*}
+
+همچنین با الهام گرفتن از این، میتوانیم انحراف بین دو رویه را محسابه کنیم.
+$$D(\mathcal{P}:\mathcal{Q})=\min_{q\in \mathcal{Q}, p\in \mathcal{P}}D(p:q)$$
+در حالتی که جفت رویه ها تخت بودن مناسبی داشته باشند، جواب یکتا است و با الگوریتم های چند مرحله ای میتوان به آن رسید. الگوریتم هایی مانند الگوریتم EM و مراحل یادگیری VAE را میتوان با این مفهوم معادل سازی کرد.
+
+\clearpage
+
+\subsection{تصویر-m و تصویر-e}
+
+ابتدا خانواده نمایی و خانواده ترکیبی توزیع ها را در نظر بگیرید.
+
+\begin{align*}
+	\mathcal{E} & =\left\{p_\theta(x)=\exp(\theta^Tt(x)-F(\theta))|\theta\in\Theta\right\}                                  \\
+	\mathcal{M} & =\left\{p_\theta(x)=\sum_{i=1}^{D}\theta_ip_i(x)+(1-\sum_{i=1}^{D}\theta_i)p_0(x)|\theta\in\Theta\right\}
+\end{align*}
+
+که در آن $F(\theta)$ تابع انرژی آزاد است.
+
+$$
+	F(\theta)=\log\int\exp(\theta^Tt(x))d\mu(x) \Rightarrow F^*(\eta)=\int p(x)\log(p(x))d\mu(x)
+$$
+
+و همچنین برای مختصه $\eta$ داریم که:
+
+$$
+	\eta=\nabla_\theta F(\theta)=\frac{\int(t(x)\exp(\theta^Tt(x))d\mu(x))}{\int\exp(\theta^Tt(x))d\mu(x)}=\mathbb{E}_\theta[t(x)]
+$$
+
+در نتیجه، به مختصه دگان $\eta$ در اینجا مختصه ممان ها میگویند، و به مختصه $\theta$ مختصه پارامتر کانونیک میگویند.
+
+میتوان دید که در این فضا، روابط زیر برقرار است.
+
+$$\nabla^m=(\nabla^e)^*, \nabla^e=(\nabla^m)^*, \prescript{M}{e}{\Gamma}=0, \prescript{e}{M}{\Gamma}=0, \prescript{m}{M}{\Gamma}=0, \prescript{e}{E}{\Gamma}=0$$
+
+که در واقع یعنی در یک هندسه دگان تخت هستیم، و که توزیع های ترکیبی و خانواده نمایی دگان هم هستند.
+
+و میتوانیم در این مختصه ها ژئودزی تعریف کنیم به صورت زیر.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics*[width=0.7\linewidth]{Pictures/Q5/geodesic.png}
+    \caption{ژئودزی در مختصه اصلی و دگان}
+\end{figure}
+% \begin{minipage}{0.29\linewidth}
+% 	\begin{align*}
+% 		\gamma_{p_{\theta_1}p_{\theta_2}}(t) & =p_{(1-t)\theta_1+t\theta_2}\\
+% 		\gamma^*_{p_{\eta}p_{\eta}}(t) & =p^{(1-t)\eta+t\eta}
+% 	\end{align*}
+% \end{minipage}
+
+\clearpage
+
+\subsubsection{تخمینگر MLE و تصویر-m}
+
+اگر با استفاده از $\nabla^m$ انتقال موازی داشته باشیم، میتوان در واقع یک تصویر-m کرده ایم، از استفاده این میتوان شهودی بر تخمینگر MLE را دید.
+
+\begin{figure}[b]
+    \centering
+    \includegraphics*[width=0.49\linewidth]{Pictures/Q5/maximum-likelihood.png}
+    \includegraphics*[width=0.49\linewidth]{Pictures/Q5/max-ent.png}
+    \caption{تخمینگر MLE(چپ)، بیشینه آنتروپی(راست)}
+\end{figure}
+
+به سادگی میتوان دید که مسئله ماکسیمم درست نمایی، معادل کمینه کردن انحراف کولبک لیبر بین توزیع پارامتریزه شده و توزیع تجربی است.
+
+$$
+D(p_e, p_\theta) = \sum_i \frac{n_i}{n} log(\frac{n_i}{np_\theta(x_i)}) = -h(p_e) + \frac{1}{n} \sum_i n_i log(p_\theta(x_i))=-h(p_e)+\frac{1}{n}l(\theta)
+$$
+
+در نتیجه میتوانیم ببینیم که این مسئله کمینه کردن انحراف کولبک لیبر، دقیقا همان تعریف ما از تصویر کردن است، با توجه به اینکه توزیع پارامتریزه شده ما یک ناحیه \lr{e-flat} است.
+
+$$
+\hat{\theta}^{MLE}=\text{Proj}_{\mathcal{P}}^{\nabla^m}(p_e)
+$$
+
+\subsubsection{قائده بیشینه آنتروپی}
+
+یک قائده دیگر که استفاه میکنیم، تایین کردن توزیع با استفاده از چند مشاهده است، زمانی که پیشینه خاصی نداریم.
+معمولا در این مواقع از قائده بیشینه آنتروپی استفاده میکنیم.
+
+در این حالت از مسئله زیر استفاده میکنیم.
+
+$$
+D(p, u)=\sum_i p_i\log(Np_i) = \log(N) + \sum_{i} p_i\log(p_i) = \log(N) - h(p)
+$$
+
+در نتیجه کمینه کردن انحراف مزکور، معادل بیشینه کردن آنتروپی است.
+
+اگر مشاهده های ما به صورت مشاهده های $\mathbb{E}[t_i(x)]=a_i$ باشد، این مشاهده ها ما را به صورت خطی محدود میکند، در واقع این ها ما را به زیرمجموعه $\mathcal{M}_{n-k}$ می برند.
+
+حال چون که امید ریاضی تابعی خطی است، مجموعه ما به توزیع های ترکیبی بسته است، در نتیجه باید یک محموعه \lr{m-flat} باشد. و نتیجه میگیریم که پاسخ بهینه، در واقع تصویر-m توزیع با بیشینه آنتروپی(یکنواخت)، بر روی زیر رویه $\mathcal{M}_{n-k}$ میباشد.

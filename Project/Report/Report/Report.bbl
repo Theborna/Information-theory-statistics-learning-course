@@ -1,0 +1,182 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nty/global//global/global}
+  \entry{divergence-functions}{article}{}
+    \name{author}{2}{}{%
+      {{hash=ASi}{%
+         family={Amari},
+         familyi={A\bibinitperiod},
+         given={Shun-ichi},
+         giveni={S\bibinithyphendelim i\bibinitperiod},
+      }}%
+      {{hash=CA}{%
+         family={Cichocki},
+         familyi={C\bibinitperiod},
+         given={Andrzej},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ASiCA1}
+    \strng{fullhash}{ASiCA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \verb{doi}
+    \verb 10.2478/v10175-010-0019-1
+    \endverb
+    \field{title}{Information geometry of divergence functions}
+    \field{volume}{58}
+    \field{journaltitle}{BULLETIN OF THE POLISH ACADEMY OF SCIENCES TECHNICAL
+  SCIENCES}
+    \field{month}{03}
+    \field{year}{2010}
+  \endentry
+
+  \entry{han2020from}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=HT}{%
+         family={Han},
+         familyi={H\bibinitperiod},
+         given={Tian},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=ZJ}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Jun},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=WYN}{%
+         family={Wu},
+         familyi={W\bibinitperiod},
+         given={Ying\bibnamedelima Nian},
+         giveni={Y\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HTZJWYN1}
+    \strng{fullhash}{HTZJWYN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{booktitle}{NeurIPS 2020 Workshop: Deep Learning through Information
+  Geometry}
+    \field{title}{From em-Projections to Variational Auto-Encoder}
+    \verb{url}
+    \verb https://openreview.net/forum?id=NXbapYR49pg
+    \endverb
+    \field{year}{2020}
+  \endentry
+
+  \entry{Morales_2021}{article}{}
+    \name{author}{2}{}{%
+      {{hash=MPA}{%
+         family={Morales},
+         familyi={M\bibinitperiod},
+         given={Pablo\bibnamedelima A.},
+         giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=RFE}{%
+         family={Rosas},
+         familyi={R\bibinitperiod},
+         given={Fernando\bibnamedelima E.},
+         giveni={F\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Physical Society (APS)}%
+    }
+    \strng{namehash}{MPARFE1}
+    \strng{fullhash}{MPARFE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \verb{doi}
+    \verb 10.1103/physrevresearch.3.033216
+    \endverb
+    \field{issn}{2643-1564}
+    \field{number}{3}
+    \field{title}{Generalization of the maximum entropy principle for curved
+  statistical manifolds}
+    \verb{url}
+    \verb http://dx.doi.org/10.1103/PhysRevResearch.3.033216
+    \endverb
+    \field{volume}{3}
+    \field{journaltitle}{Physical Review Research}
+    \field{month}{09}
+    \field{year}{2021}
+  \endentry
+
+  \entry{Nielsen_2020}{article}{}
+    \name{author}{1}{}{%
+      {{hash=NF}{%
+         family={Nielsen},
+         familyi={N\bibinitperiod},
+         given={Frank},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {MDPI AG}%
+    }
+    \strng{namehash}{NF1}
+    \strng{fullhash}{NF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \verb{doi}
+    \verb 10.3390/e22101100
+    \endverb
+    \field{issn}{1099-4300}
+    \field{number}{10}
+    \field{pages}{1100}
+    \field{title}{An Elementary Introduction to Information Geometry}
+    \verb{url}
+    \verb http://dx.doi.org/10.3390/e22101100
+    \endverb
+    \field{volume}{22}
+    \field{journaltitle}{Entropy}
+    \field{month}{09}
+    \field{year}{2020}
+  \endentry
+
+  \entry{EM-info}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=SS}{%
+         family={Suliman},
+         familyi={S\bibinitperiod},
+         given={Sammy},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SS1}
+    \strng{fullhash}{SS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{The EM Algorithm in Information Geometry}
+    \field{month}{05}
+    \field{year}{2024}
+  \endentry
+\enddatalist
+\endinput

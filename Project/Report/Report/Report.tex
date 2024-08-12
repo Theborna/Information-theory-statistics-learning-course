@@ -1,0 +1,78 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{matlab-prettifier}
+\usepackage{xcolor}
+\usepackage{Code}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{blindtext}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage[backend=bibtex]{biblatex}
+\addbibresource{References.bib}
+\usepackage[bottom,norule]{footmisc}
+\usepackage{xepersian}
+
+\settextfont{Yas}
+
+
+% Define header and footer
+\pagestyle{fancy}
+\fancyhf{} % Clear default header and footer
+\fancyhead[L]{هندسه اطلاعات و کاربردها}
+\fancyhead[R]{نظریه اطلاعات, آمار و یادگیری}
+\fancyfoot[C]{\thepage}
+\fancyfoot[L]{دانشگاه صنعتی شریف}
+\renewcommand{\footrulewidth}{1.2pt}
+\renewcommand{\headrulewidth}{1.2pt}
+\let\origfootrule\footrule
+\renewcommand{\footrule}{\iffootnote{}{\origfootrule}}
+\renewcommand\footnoterule{\origfootrule}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+  citecolor=blue,
+  filecolor=blue,
+  linkbordercolor=white,
+  urlbordercolor=white,
+  citebordercolor=white,
+  filebordercolor=white
+}
+
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\begin{document}
+
+\input{Title Page.tex}
+\tableofcontents
+\pagebreak
+\foreach \x in {1,2,4,5,6}{
+
+		\input{Questions/Q\x.tex}
+		\pagebreak
+	}
+
+
+\section{تقدیر، نتیجه گیری و منابع}
+
+در تهیه این گزارش، از کار های \lr{Frank nielsen} و به خصوص مقاله \cite{Nielsen_2020} استفاده بسیار شده و در این قسمت از ایشان تقدیر میکنیم، از منابع منبع باز ایشان نیز در بعضی از نتیجه گیری ها و نمودار ها استفاده کرده ایم.
+
+در نهایت، حوزه هندسه اطلاعات، بسیار حوزه بزرگی است و چکیده کردن آن بیشتر از این گزارش، از تمامیت آن میکاهید، این حوزه بسیار حوزه جذابی است و دید های بسیار متفاوتی به علوم اطلاعات، نسبت به روش های کلاسیک میدهد.
+
+ممنون از همراهی شما.
+
+\begin{latin}
+	\printbibliography
+\end{latin}
+\end{document}

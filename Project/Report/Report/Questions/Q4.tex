@@ -1,0 +1,128 @@
+\section{انحراف‌ ها}
+ 
+یک مفهوم که بار ها داخل درس و در کل در مقایسه ها دیده ایم، مفهوم انحراف بوده، این انحراف
+حالا میتواند بین دو توزیع باشد، مانند انحراف کولبک-لببر\lr{(KL Divergence)}، فاصله TV یا باقی معیار ها مانند \lr{f}-انحراف ها که در درس بار ها با آن ها برخورد کردیم.
+
+حال در هندسه، همانطور که گفتیم حداقل در هندسه ریمانی، نیاز به تعریف هندسه داریم به صورت ($\mathcal{M}, g$)، که در تمامی این هندسه ها معیار فاصله یک معیار مهم است، که $g$ یا متریک بر آن دلالت دارد.
+
+با الهام از این موضوع، ما در قدم اول برای تعریف یک هندسه، به تعریف فاصله یا به طور کلی تر به تعریف یک انحراف میپردازیم.
+
+\subsection{متریک فیشر}
+
+قبل از بررسی کامل اینکه یک انحراف چیست، ببینیم چگونه میتوانیم با استفاده از یک انحراف، به خواص هندسی رویه اطلاعات خود می پردازیم. در واقع به صورت تاریخی، این مشاهده شروع اصلی هندسه اطلاعات است.
+
+قبل تر در درس دیدیم که فاصله بین دو توزیع مشابه، با پارامتر های نزدیک رفتار توان دویی دارد. در تعریف متریک نیز دیده ایم که با استفاده از متریک، فاصله نقاط نزدیک را میتوانیم به صورت زیر حساب کنیم. 
+$$D(p_\theta, p_{\theta+\delta})=\delta^T(I(\theta)+o(1))\delta, \quad ds^2=g_{ij}dx^idx^j$$
+
+همچنین، تبدیل ماتریس فیشر را دیده بودیم، و تبدیل یک متریک بین مختصات را نیز از هندسه داشتیم. که در آن $A$ ماتریس ژاکوبین تبدیل بین $\theta, \theta'$ است.
+
+$$I(\theta')=A^TI(\theta)A, \quad g'=A^TgA$$
+
+همانطور که واضح است، ماتریس اطلاعات فیشر بسیار مشابه به یک متریک عمل میکند، میتوانیم از این ایده استفاده کنیم تا هندسه و در واقع خم فیشر-رائو را تشکیل دهیم.
+\begin{align*}
+    g_F(u,v)=\mathbb{E}[u(x), v(x)]=\text{Cov}(u, v)\\
+    g_F(\partial_i, \partial_j)=\mathbb{E}[\partial_il_x(\theta)\partial_jl_x(\theta)]=I_{ij}(\theta)\\
+    g_F(u,v)=[u]_B^TI(\theta)[v]_B
+\end{align*}
+
+حال با استفاده از این میتوانیم فاصله فیشر-رائو بین دو توزیع را تعریف کنیم، به صورت طول کمینه خمینه ای که بین این دو توزیع کشیده میشود، با توجه به متریک رائو.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics*[width=0.6\linewidth]{Pictures/Q4/rao-distance.png}
+    \caption{فاصله فیشر-رائو}
+\end{figure}
+
+به طور کلی محاسبه این فاصله به شدت سخت است زیرا نیاز به حل معادله ژئودزی دارد، حتی برا متغیر های گوسی چند متغیره رابطه بسته ای وجود ندارد.
+
+یک نکته مهم این متر، این است که حال این فاصله دیگر به مختصه بستگی ندارد، و به عبارتی ناوردا است.
+
+\subsection{ارتباط متمم از یک انحراف: $(\mathcal{M}, D)=(\mathcal{M}, \prescript{D}{}{g}, \prescript{D}{}{\nabla}, \prescript{D}{}{\nabla}^*=\prescript{D^*}{}{\nabla})$}
+
+اگر به صورت ساده به مسئله نگاه کنیم، یک \textit{انحراف} در این ادبیات به صورت یک تابع فاصله پیوسته و مشتق پذیر است، که میتواند نامتقارن هم باشد.
+
+\textbf{تعریف: } به ریاضی، یک انحراف، $D:M\times M\to[0,\infty)$ بر روی خمینه $\mathcal{M}$، با توجه به مختصه $\Theta$ یک تابع 3 بار مشتق پذیر است که خواص زیر را ارضا میکند.
+
+\begin{enumerate}
+    \item $D(\theta:\theta')\geq0$ برای تمامی $\theta, \theta'\in\Theta$ و که تساوی تنها برای $\theta=\theta'$ رخ میدهد.
+    \item $\frac{\partial D(\theta:\theta')}{\partial \theta^i}=\frac{\partial D(\theta:\theta')}{\partial \theta^j}=0$ برای تمامی جهت ها.
+    \item $-\frac{\partial D(\theta:\theta')}{\partial\theta'^j\partial \theta^i}$ یک ماتریس مثبت معین است.
+\end{enumerate}
+
+به سادگی میتوان نشان داد که اکثر انحراف هایی که در درس دیدیم، این خواص را ارضا میکنند.
+
+دو خاصیت آخر به ما القا میکنند که این انحراف ها، برای ما در واقع نوعی $\text{فاصله}^2$ هستند و اینگونه رفتار میکنند.
+
+داخل درس به این مفهوم چندین بار برخورد کردیم، رفتار همسایگی نزدیک انحراف هایی که دیده ایم مانند انحراف $\chi^2$ و KL را دیدیم که به صورت $\delta\theta^TI(\theta)\delta\theta$ رفتار میکند، که فاصله توان 2 ای است، قضیه فیثاغورس برای KL را دیدیم(به این ها در قسمت های بعدی باز میگردیم)، و حتی به صورت ساده تر، دیده ایم که برای دو توزیع نورمال گوسی، $D_{KL}(\mathcal{N}(\mu_1, \sigma)||\mathcal{N}(\mu_2, \sigma))=\frac{\norm{\mu_1-\mu_2}^2_2}{2\sigma^2}$ که به طور واضح به توان دویی بودن این انحراف ها اشاره میکند.
+
+\vspace*{1em}
+
+همانطور که اندکی پیش اشاره کردیم، با بررسی رفتار انحرافی مانند KL، در همسایگی آن، میبینیم که $D_{KL}(p_\theta||p_{\theta+\delta})=\delta^T(I(\theta)+o(1))\delta$، که به هندسه ای مانند چیزی که دیده بودیم در $ds^2=g_{ij}dx^idx^j$ اشاره میکند، با الهام از این، ما هندسه خود را میتوانیم از یک واگرایی تعریف کنیم.
+
+\begin{align*}
+    \prescript{D}{}{g}_{ij}&=-\frac{\partial^2D(\theta:\theta')}{\partial\theta^i\partial\theta'^j}\Big|_{\theta=\theta'}\\
+    \Gamma_{ij}^k&=-\frac{\partial^3D(\theta:\theta')}{\partial\theta^i\partial\theta^j\partial\theta'^k}\Big|_{\theta=\theta'}\\
+    \Gamma_{ij}^{*k}&=-\frac{\partial^3D(\theta:\theta')}{\partial\theta'^i\partial\theta'^j\partial\theta^k}\Big|_{\theta=\theta'}\\
+    \prescript{D}{}{C}_{ijk}&=\Gamma_{ij}^{*k}-\Gamma_{ij}^k
+\end{align*}
+
+طبیعتا اینجا نیز میتوانیم به ازای $\alpha\in\mathbb{R}$ خانواده ای از خمینه های آماری بسازیم.
+
+$$\left\{(\mathcal{M},\prescript{D}{}{g},\prescript{D}{}{C}^\alpha)=(\mathcal{M},\prescript{D}{}{g},\prescript{D}{}{\nabla}^{-\alpha},\prescript{D}{}{\nabla}^{\alpha})\right\}_{\alpha\in\mathbb{R}}$$
+
+\subsection{انحراف برگمن}
+
+در این قسمت، به یک قاعده کلی برای تعریف یک انحراف میپردازیم، (که در هندسه اطلاعات بسیار مفید واقع شده اند \cite{divergence-functions})، یک تابع محدب و مشتق پذیر را در نظر بگیرید، به صورت $F(\theta)$ که به آن تابع پتانسیل میگوییم.
+
+برای تولید یک انحراف، در مرحله اول میتوانیم صرفا از $F(\theta)-F(\theta')$ استفاده کنیم، ولی این انحراف به علت وجود تغییرات خطی در همسایگی، خواص قبلی را ارزا نمیکند، پس به سادگی، انحراف را به شکل زیر در نظر میگیرم.
+
+$$B_F(\theta:\theta')=F(\theta)-F(\theta')-(\theta-\theta')^T\nabla F(\theta')$$
+
+نمونه ای از چند تابع پتانسیل معروف:
+
+\begin{itemize}
+    \item تابع پتانسیل درجه دو:\\ \centerline{$F(x)=\frac{1}{2}x^TQx\Rightarrow B_F(\theta:\theta')=\frac{1}{2}(\theta-\theta')'^TQ(\theta-\theta')$}
+    \item تابع پتانسیل آنترپی منفی:\\ \centerline{$F(p)=\sum_ip_i\log(p_i)\Rightarrow B_F(p:q)=D_{KL}(p||q)$}
+    \item انرژی آزاد، به این مورد برمیگردیم: $$\mathcal{E}=\left\{p_\theta(x)=\exp(\sum_it_i(x)\theta_i-F(\theta+k(x)))|\theta\in\Theta\right\}\Rightarrow B_F(\theta:\theta')=D_{KL}(p_\theta||p_{\theta'})$$
+\end{itemize}
+
+این انحراف، نوعی هندسه ساده را برای ما تعریف میکنند.
+\begin{align*}
+    \prescript{F}{}{g}&=\nabla^2F(\theta)\\
+    \prescript{F}{}{\Gamma}&=0\Rightarrow\prescript{F}{}{\nabla}-flat\\
+    \prescript{F}{}{C}_{ijk}&=\partial_i\partial_j\partial_kF(\theta)
+\end{align*}
+
+همچنین، با استفاده از تبدیل دوگان محدب، متوانیم \textit{تابع پتانسیل دوگان} را بدست آوریم.
+$$
+ F^*(\eta):=\sup\left\{\theta^T\eta-F(\theta)\right\}
+$$
+
+از بهینه سازی، میدانیم که $\nabla^2F^*(\eta)\nabla^2F(\theta)=\mathbf{I}$، و که این ماکسیمم در نقطه $\eta=\nabla F(\theta), \theta=\nabla F^*(\eta)$ رخ میدهد، که با استفاده از آن باقی المان های هندسه خود را تشکیل میدهیم.
+
+\begin{align*}
+    \prescript{F}{}{g}^{ij}(\eta)&=\partial^i\partial^jF^*(\eta)\\
+    \prescript{F}{}{\Gamma}^{*ijk}&=0\Rightarrow\prescript{F}{}{\nabla}^*-flat\\
+    \prescript{F}{}{C}^{ijk}&=\partial^i\partial^j\partial^kF^*(\eta)
+\end{align*}
+
+در اینجا به این نتیجه بنیادی میرسیم که این خمینه اطلاعات، یک خاصیت دوگانه تخت بودنی دارد، به این معنا که هم \lr{$\nabla$-flat} و هم \lr{$\nabla^*$-flat} است.
+
+% \clearpage
+
+\subsection{فضیه فیثاغورس تعمیم یافته}
+
+به سادگی میتوان دید که رابطه زیر برقرار است.
+$$B_F(\theta_1:\theta_2)=B_F(\theta_1:\theta_3)+B_F(\theta_3:\theta_2)-(\theta_1-\theta_3)^T(\nabla F(\theta_2)-\nabla F(\theta_3))$$
+و در مختصات دگان، داریم که $\eta=\nabla F(\theta)$، در نتیجه رابطه زیر را میتوانیم ببینیم.
+$$B_F(\theta_1:\theta_2)=B_F(\theta_1:\theta_3)+B_F(\theta_3:\theta_2)\iff(\theta_1-\theta_3)\perp(\eta_1-\eta_3)$$
+که با توجه به شهود ما بر انحراف ها و رفتار فاصله توان دویی آنها، در واقع جلوه ای از قضیه فیثاغورس است.
+
+با استفاده از این رابطه، و توابع پتانسیل متنوع، میتوانیم هم فیثاغورس اصلی، فیثاغورس برای انحراف KL و \dots را اثبات کنیم.
+
+در نگاه اول ممکن است به نظر بیاید که این مشاهده ارزش آنچنانی ندارد، ولی در واقع پایه ای از تعریف ما برای تصویر اطلاعاتی و باقی چیز های مبتنی بر آن است.
+\begin{figure}[h]
+    \centering
+    \includegraphics*[width=0.8\linewidth]{Pictures/Q4/pythagoras.png}
+    \caption{نمایی از قضیه فیثاغورس تعمیم یافته}
+\end{figure}
